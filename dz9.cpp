@@ -14,7 +14,7 @@ int main()
     //1 task
     ifstream inFile("input.txt");
     if (inFile.fail()) {
-        cout << "Не удалось открыть файл!" << endl;
+        cout << "Failed to open file!" << endl;
     }
     else {
         string line;
@@ -27,28 +27,28 @@ int main()
     int k = 0;
     ifstream inFile("data.txt");
     if (inFile.fail()) {
-        cout << "Не удалось открыть файл!" << endl;
+        cout << "Failed to open file!" << endl;
     }
     else {
         string line;
         while (getline(inFile, line)) {
             k++;
         }
-        cout << "Количество строк в файле: " << k;
+        cout << "Number of lines in file: " << k;
     }
 
     //3 task
     int k = 0;
     ifstream inFile("text.txt");
     if (inFile.fail()) {
-        cout << "Не удалось открыть файл!" << endl;
+        cout << "Failed to open file!" << endl;
     }
     else {
         string word;
         while (inFile>>word) {
             k++;
         }
-        cout << "Количество слов в файле: " << k<<endl;
+        cout << "Number of words in file: " << k<<endl;
     }
 
     //4 task
@@ -56,11 +56,11 @@ int main()
     ifstream inFile("source.txt");
     ofstream outFile("copy.txt");
     if (inFile.fail()) {
-        cout << "Не удалось открыть файл source.txt!" << endl;
+        cout << "Failed to open file source.txt!" << endl;
     }
     else {
         if (outFile.fail()) {
-            cout << "Не удалось открыть файл copy.txt!" << endl;
+            cout << "Failed to open file copy.txt!" << endl;
         }
         else {
             string line;
@@ -68,8 +68,8 @@ int main()
                 outFile << line << endl;
                 k++;
             }
-            cout << "Файл успешно скопирован " << endl;
-            cout << "Количество скопированных строк: " << k;
+            cout << "The file was copied successfully " << endl;
+            cout << "Number of lines copied: " << k;
         }
 
     }
@@ -78,20 +78,20 @@ int main()
     int k = 0;
     ifstream inFile("text.txt");
     if (inFile.fail()) {
-        cout << "Не удалось открыть файл!" << endl;
+        cout << "Failed to open file!" << endl;
     }
     else {
         char c;
         while (inFile.get(c)) {
             k++;
         }
-        cout << "Количество символов в файле: " << k<<endl;
+        cout << "Number of characters in file: " << k<<endl;
     }
 
     //6 task
     ofstream outFile("output.txt");
     if (outFile.fail()) {
-        cout << "Не удалось открыть файл output.txt!" << endl;
+        cout << "Failed to open file output.txt!" << endl;
     }
     else {
         string line;
@@ -100,7 +100,7 @@ int main()
             outFile << line << endl;
             getline(cin, line);
        }
-        cout << "Данные записаны в файл" << endl;
+        cout << "All data is written to a file" << endl;
     }
 
     //7 task
@@ -108,7 +108,7 @@ int main()
     int sums = 0;
     ifstream inFile("numbers.txt");
     if (inFile.fail()) {
-        cout << "Не удалось открыть файл!" << endl;
+        cout << "Failed to open file!" << endl;
     }
     else {
         string word;
@@ -116,20 +116,20 @@ int main()
             k++;
             sums += stoi(word);
         }
-        cout << "Количество чисел в файле: " << k<<endl;
-        cout << "Сумма чисел в файле: " <<sums << endl;
-        cout << "Среднее значение чисел в файле: " << sums/k << endl;
+        cout << "Number of numbers in file: " << k<<endl;
+        cout << "Sum of numbers in file: " <<sums << endl;
+        cout << "Average value of numbers in file: " << sums/k << endl;
     }
 
     //8 task
     ifstream inFile1("file1.txt");
     ifstream inFile2("file2.txt");
     if (inFile.fail()) {
-        cout << "Не удалось открыть файл file1.txt !" << endl;
+        cout << "Failed to open file file1.txt !" << endl;
     }
     else {
         if (inFile.fail()) {
-            cout << "Не удалось открыть файл file2.txt !" << endl;
+            cout << "Failed to open file file2.txt !" << endl;
         }
         else {
             string line1;
@@ -141,10 +141,10 @@ int main()
                 }
             }
             if (l) {
-                cout << "Файлы идентичны. " << endl;
+                cout << "The files are identical. " << endl;
             }
             else {
-                cout << "Файлы различаются. " << endl;
+                cout << "The files are different. " << endl;
             }
         }
     }
@@ -153,7 +153,7 @@ int main()
     ifstream inFile("temperature_data.txt");
     ofstream outFile("report.txt");
     if (inFile.fail()) {
-        cout << "Не удалось открыть файл temperature_data.txt!" << endl;
+        cout << "Failed to open file temperature_data.txt!" << endl;
     }
     else {
         map<string, vector<double>> v;
@@ -166,7 +166,7 @@ int main()
             v[name].push_back(temp);
         }
         if (outFile.fail()) {
-            cout << "Не удалось открыть файл report.txt!" << endl;
+            cout << "Failed to open file report.txt!" << endl;
         }
         else {
             for (auto& d : v) {
@@ -182,7 +182,7 @@ int main()
 
                 outFile <<names << ": min=" << mint << ", max=" << maxt << ", avg=" << srt << endl;
             }
-            cout << "Все данные записаны в файл" << endl;
+            cout << "All data is written to a file" << endl;
         }
     }
     inFile.close();
@@ -192,7 +192,7 @@ int main()
     ifstream inFile("power_log.txt");
     ofstream outFile("energy_report.txt");
     if (inFile.fail()) {
-        cout << "Не удалось открыть файл temperature_data.txt!" << endl;
+        cout << "Failed to open file temperature_data.txt!" << endl;
     }
     else {
         map<string, vector<double>> v;
@@ -206,7 +206,7 @@ int main()
             v[name].push_back(temp);
         }
         if (outFile.fail()) {
-            cout << "Не удалось открыть файл report.txt!" << endl;
+            cout << "Failed to open file report.txt!" << endl;
         }
         else {
             for (auto& d : v) {
@@ -221,7 +221,7 @@ int main()
 
                 outFile <<names << ": measurements=" << temps.size() << ", total=" << sums << " kWh, average=" << srt <<" kW"<< endl;
             }
-            cout << "Все данные записаны в файл" << endl;
+            cout << "All data is written to a file" << endl;
         }
     }
     inFile.close();
@@ -231,7 +231,7 @@ int main()
     ofstream outFile("vibration_report.txt");
 
     if (inFile.fail()) {
-        cout << "Не удалось открыть файл vibration_log.txt!" << endl;
+        cout << "Failed to open file vibration_log.txt!" << endl;
         return 1;
     }
 
@@ -242,7 +242,7 @@ int main()
         }
 
     if (outFile.fail()) {
-        cout << "Не удалось открыть файл vibration_report.txt!" << endl;
+        cout << "Failed to open file vibration_report.txt!" << endl;
         return 1;
     }
 
@@ -260,23 +260,24 @@ int main()
         else return *max_element(temps.begin(), temps.end());
         };
 
-    outFile << "Количество измерений: " << v.size() << endl;
+    outFile << "Number of measurements: " << v.size() << endl;
 
-    outFile << "Фильтрованные значения (>0.05): ";
+    outFile << "Filtered values (>0.05): ";
     for (auto k : v) {
-        if (filtr(k)) {  // Проверяем условие фильтрации
-            outFile << k << " ";  // Выводим значение
+        if (filtr(k)) { 
+            outFile << k << " "; 
         }
     }
     outFile << endl;
 
-    outFile << "Среднее значение: " << sr(v) << endl;
-    outFile << "Минимум: " << mins(v) << endl;
-    outFile << "Максимум: " << maxs(v) << endl;
+    outFile << "Average value: " << sr(v) << endl;
+    outFile << "Min: " << mins(v) << endl;
+    outFile << "Max: " << maxs(v) << endl;
 
-    cout << "Все данные записаны в файл" << endl;
+    cout << "All data is written to a file" << endl;
 
     inFile.close();
     outFile.close();
+
 
     return 0;
