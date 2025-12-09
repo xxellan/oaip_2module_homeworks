@@ -52,7 +52,7 @@ public:
         return (a + b) * 2;
     }
     void displayinfo() {
-        cout << "Length: " << a << ", " << "Width: " << b << ", " << "Площадь: " << a*b << ", " << "Периметр: " << (a + b) *2<< endl;
+        cout << "Length: " << a << ", " << "Width: " << b << ", " << "Square: " << a*b << ", " << "Perimeter: " << (a + b) *2<< endl;
     }
 };
 
@@ -68,4 +68,5 @@ int main()
     f1.displayinfo();
 
 }
+
 
