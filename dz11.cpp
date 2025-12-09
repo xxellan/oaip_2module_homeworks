@@ -1,3 +1,4 @@
+//3 задачи на очередь
 #include <iostream>
 #include <queue>
 #include <string>
@@ -117,4 +118,5 @@ int main() {
     runTask2();
     runTask3();
     return 0;
+
 }
