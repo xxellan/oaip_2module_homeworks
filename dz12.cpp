@@ -1,3 +1,4 @@
+//6 задач на структуры и обьединения
 //1 task (структуры)
 #include <iostream>
 #include <string>
@@ -618,4 +619,5 @@ int main() {
     cout << "All components share the same memory area." << endl;
 
     return 0;
+
 }
