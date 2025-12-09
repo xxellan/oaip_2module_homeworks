@@ -1,3 +1,4 @@
+//16 задач на указатели
 //1 task
 #include <iostream>
 #include <cstring>
@@ -380,4 +381,5 @@ int main() {
     analyzePressure(pressure, minVal, maxVal, avgVal);
     cout << "Min: " << minVal << "\nMax: " << maxVal << "\nAvg: " << avgVal << endl;
     return 0;
+
 }
