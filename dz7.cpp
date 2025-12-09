@@ -1,3 +1,4 @@
+//10 задач указатели на указатели
 //1 task
 #include <iostream>
 #include <locale>
@@ -8,10 +9,10 @@ void swapPointers(int** a, int** b) {
     *b = c;
 }
 void Print(int* a, int* b) {
-    cout << "Адрес p1: " << a << endl;
-    cout << "Значение p1: " << *a << endl;
-    cout << "Адрес p2: " << b << endl;
-    cout << "Значение p2: " << *b << endl;
+    cout << "Address p1: " << a << endl;
+    cout << "Value p1: " << *a << endl;
+    cout << "Address p2: " << b << endl;
+    cout << "Value p2: " << *b << endl;
 }
 int main() {
     setlocale(LC_ALL, "Russian");
@@ -19,10 +20,10 @@ int main() {
     int y = 5;
     int* p1 = &x;
     int* p2 = &y;
-    cout << "До обмена указателей" << endl;
+    cout << "Before swapping pointers" << endl;
     Print(p1, p2);
     swapPointers(&p1, &p2);
-    cout << "После обмена указателей" << endl;
+    cout << "After swapping pointers" << endl;
     Print(p1, p2);
     return 0;
 }
@@ -33,7 +34,7 @@ int main() {
 using namespace std;
 void free2D(int** arr, int n) {
     for (int i = 0; i < n; ++i) {
-        delete[] arr[i]; // Удаляем каждый ряд
+        delete[] arr[i];
     }
     delete[] arr;
 }
@@ -58,11 +59,10 @@ void Show(int** array, int rows, int cols) {
     }
 }
 int main() {
-    setlocale(LC_ALL, "Russian");
     int rows, cols;
-    cout << "Введите кол-во строк ";
+    cout << "Enter number of rows ";
     cin >> rows;
-    cout << "Введите кол-во столбцов ";
+    cout << "Enter number of columns ";
     cin >> cols;
     int** array = new int* [rows]; 
     for (int i = 0; i < rows; ++i) {
@@ -73,9 +73,9 @@ int main() {
             array[i][j] = value++;
         }
     }
-    cout << "Старый массив" << endl;
+    cout << "Old array" << endl;
     Show(array, rows, cols);
-    cout << "Новый массив" << endl;
+    cout << "New array" << endl;
     int** array2 = transpose(array, rows, cols);
     Show(array2, cols, rows);
     free2D(array, rows);
@@ -132,11 +132,10 @@ int sumElements(int** arr, int n, int m) {
     return k;
 }
 int main() {
-    setlocale(LC_ALL, "Russian");
     int rows, cols;
-    cout << "Введите кол-во строк ";
+    cout << "Enter number of rows ";
     cin >> rows;
-    cout << "Введите кол-во столбцов ";
+    cout << "Enter number of columns ";
     cin >> cols;
     int** array = new int* [rows];
     for (int i = 0; i < rows; ++i) {
@@ -145,14 +144,14 @@ int main() {
     int k = 1;
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
-            cout << "Введите " << k++ << " элемент массива: ";
+            cout << "Enter element " << k++ << " of array: ";
             cin >> array[i][j];
         }
     }
     int count = sumElements(array, rows, cols);
-    cout << "Сумма элементов массива: " << count << endl;
+    cout << "Sum of array elements: " << count << endl;
     sortRowsBySum(array, rows, cols);
-    cout << "Отсортированный массив (по сумме строк):" << endl;
+    cout << "Sorted array (by row sums): " << endl;
     Show(array, rows, cols);
     free2D(array, rows);
 }
@@ -173,7 +172,6 @@ void Sort(char** words, int n) {
     }
 }
 int main() {
-    setlocale(LC_ALL, "Russian");
     char** words= new char* [7];
     words[0] = const_cast<char*>("banana");
     words[1] = const_cast<char*>("apple");
@@ -185,7 +183,7 @@ int main() {
     int n = 7;
     Sort(words, n);
     for (int i = 0; i < 7; ++i) {
-        cout << i + 1 << " слово: " << words[i] << endl;
+        cout << i + 1 << " word: " << words[i] << endl;
     }
 }
 
@@ -237,11 +235,10 @@ void updateTemperature(double** plate, int n, int m) {
     }
 }
 int main() {
-    setlocale(LC_ALL, "Russian");
     int n, m, k;
-    cout << "Ввдеите кол-во итераций: "; cin >> k;
-    cout << "Ввдеите длину массива: "; cin >> n;
-    cout << "Ввдеите ширину массива: "; cin >> m;
+    cout << "Enter number of iterations: "; cin >> k;
+    cout << "Enter array length:  "; cin >> n;
+    cout << "Enter array width: "; cin >> m;
     double** arr = new double* [n];
     for (int i = 0; i < n; ++i) {
         arr[i] = new double[m]; 
@@ -254,7 +251,7 @@ int main() {
     for (int i = 0; i < k; ++i) {
         arr = allocatePlate(arr, n, m);
     }
-    cout << "финальное распределение температуры" << endl;
+    cout << "Final temperature distribution " << endl;
     updateTemperature(arr, n, m);
     freePlate(arr, n);
 }
@@ -281,7 +278,7 @@ double** create_weights(int n, int m) {
 
 double* create_inputs(int m) {
     double* inputs = new double[m];
-    cout << "Введите " << m << " входных значений: ";
+    cout << "Enter " << m << " input values: ";
     for (int i = 0; i < m; i++) {
         cin >> inputs[i];
     }
@@ -311,15 +308,15 @@ void normalize_weights(double** weights, int n, int m) {
             for (int j = 0; j < m; j++) {
                 weights[i][j] /= sum;
             }
-            cout << "Нейрон " << i << " нормализован (сумма была: " << sum << ")" << endl;
+            cout << "Neuron " << i << " normalized (sum was: " << sum << ")" << endl;
         }
     }
 }
 
 void print_weights(double** weights, int n, int m) {
-    cout << "\nМатрица весов " << n << "x" << m << ":" << endl;
+    cout << "\nWeight matrix " << n << "x" << m << ":" << endl;
     for (int i = 0; i < n; i++) {
-        cout << "Нейрон " << i << ": ";
+        cout << "Neuron " << i << ": ";
         for (int j = 0; j < m; j++) {
             cout << weights[i][j] << " ";
         }
@@ -328,9 +325,9 @@ void print_weights(double** weights, int n, int m) {
 }
 
 void print_outputs(double* outputs, int n) {
-    cout << "\nРезультаты вычислений:" << endl;
+    cout << "\nCalculation results: " << endl;
     for (int i = 0; i < n; i++) {
-        cout << "Выход нейрона " << i << ": " << outputs[i] << endl;
+        cout << "Neuron output " << i << ": " << outputs[i] << endl;
     }
 }
 
@@ -353,22 +350,21 @@ void free_memory(double** weights, double* inputs, double* outputs, int n) {
 
 int main() {
     srand(time(0));
-    setlocale(LC_ALL, "Russian");
     int n, m;
 
-    cout << "Введите количество нейронов (N): ";
+    cout << "Enter the number of neurons (N): ";
     cin >> n;
-    cout << "Введите количество входов для каждого нейрона (M): ";
+    cout << "Enter the number of inputs for each neuron (M): ";
     cin >> m;
 
     double** weights = create_weights(n, m);
 
-    cout << "\nИсходная матрица весов:" << endl;
+    cout << "\nInitial weight matrix:" << endl;
     print_weights(weights, n, m);
 
     normalize_weights(weights, n, m);
 
-    cout << "\nМатрица весов после нормализации:" << endl;
+    cout << "\nWeight matrix after normalization:" << endl;
     print_weights(weights, n, m);
 
     double* inputs = create_inputs(m);
@@ -376,17 +372,17 @@ int main() {
     double* outputs = forward(weights, inputs, n, m);
 
     print_outputs(outputs, n);
-    cout << "\nПроверка суммы весов после нормализации:" << endl;
+    cout << "\nChecking the sum of weights after normalization:" << endl;
     for (int i = 0; i < n; i++) {
         double sum = 0.0;
         for (int j = 0; j < m; j++) {
             sum += abs(weights[i][j]);
         }
-        cout << "Сумма абсолютных значений весов нейрона " << i << ": " << sum << endl;
+        cout << "Sum of the absolute values of a neuron's weights " << i << ": " << sum << endl;
     }
     free_memory(weights, inputs, outputs, n);
 
-    cout << "\nПамять успешно освобождена!" << endl;
+    cout << "\nMemory successfully freed!" << endl;
 
     return 0;
 }
@@ -434,13 +430,13 @@ void freeMemory(int** load, int n) {
 
 }
 void inputLoadMatrix(int** load, int n, int t) {
-    cout << "Введите нагрузку для каждого узла по интервалам:" << endl;
+    cout << "Enter load for each node by intervals: " << endl;
     for (int i = 0; i < n; i++) {
-        cout << "Узел " << i << ": ";
+        cout << "Node " << i << ": ";
         for (int j = 0; j < t; j++) {
             cin >> load[i][j];
             if (load[i][j] < 0 || load[i][j] > 100) {
-                cout << "Ошибка: нагрузка должна быть в диапазоне 0-100%" << endl;
+                cout << "Error: load must be between 0-100%" << endl;
                 j--; 
             }
         }
@@ -448,7 +444,7 @@ void inputLoadMatrix(int** load, int n, int t) {
 }
 void Show(int** arr, int n, int m) {
     for (int i = 0; i < n; i++) {
-        cout << "Узел " << i << ": ";
+        cout << "Node " << i << ": ";
         for (int j = 0; j < m; j++) {
             cout << arr[i][j] << " ";
         }
@@ -470,7 +466,7 @@ void normalizeLoad(int** load, int n, int t) {
         for (int i = 0; i < n; i++) {
             if (tempLoad[i][j] > 80) {
                 int overload = tempLoad[i][j] - 80;
-                int amountToRedistribute = overload * 0.1; // 10% от перегрузки
+                int amountToRedistribute = overload * 0.1;
                 int nodesToReceive = 0;
                 for (int k = 0; k < n; k++) {
                     if (k != i && tempLoad[k][j] < 100) {
@@ -503,23 +499,23 @@ void normalizeLoad(int** load, int n, int t) {
 int main() {
     setlocale(LC_ALL, "Russian");
     int n, m;
-    cout << "Ввдеите кол-во узлов: "; cin >> n;
-    cout << "Ввдеите кол-во интервалов: "; cin >> m;
+    cout << "Enter the number of nodes: "; cin >> n;
+    cout << "Enter the number of intervals: "; cin >> m;
     int** arr = new int* [n];
     for (int i = 0; i < n; ++i) {
         arr[i] = new int[m];
     }
     inputLoadMatrix(arr, n, m);
-    cout << " Начальные значения" <<  endl;
+    cout << "Initial values" <<  endl;
     Show(arr, n, m);
     double* sr = new double [n];
     sr = averageLoadPerNode(arr, n, m);
-    cout << "\nСредняя нагрузка на каждом узле:" << endl;
+    cout << "\nAverage load on each node: " << endl;
     for (int i = 0; i < n; i++) {
-        cout << "Узел " << i << ": " <<sr[i] << "%" << endl;
+        cout << "Node " << i << ": " <<sr[i] << "%" << endl;
     }
     normalizeLoad(arr, n, m);
-    cout << "После нормализации" << endl;
+    cout << "After normalization" << endl;
     Show(arr, n, m);
     int criticalInterval = findCriticalInterval(arr, n, m);
     int totalLoad = 0;
@@ -527,7 +523,8 @@ int main() {
         totalLoad += arr[i][criticalInterval];
     }
 
-    cout << "\nКритический интервал: " << criticalInterval
-        << " (суммарная нагрузка = " << totalLoad << "%)" << endl;
+    cout << "\nCritical interval: " << criticalInterval
+        << " (total load = " << totalLoad << "%)" << endl;
     freeMemory(arr, n);
+
 }
