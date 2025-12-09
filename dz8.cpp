@@ -1,3 +1,4 @@
+//15 задач на умные указатели
 //1 task
 #include <iostream>
 #include <memory>
@@ -531,3 +532,4 @@ int main() {
 
     return 0;
 }
+
