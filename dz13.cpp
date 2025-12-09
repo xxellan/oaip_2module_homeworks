@@ -59,7 +59,7 @@ public:
 int main()
 {
     Book k1("Crime and Punishment", "Dostoevsky", 1865);
-    k1.Gettitle("Классика");
+    k1.Gettitle("Classic");
     k1.displayInfo();
     k1.displayinfo();
     Rectangle f1(23, 5);
@@ -68,3 +68,4 @@ int main()
     f1.displayinfo();
 
 }
+
